@@ -1,0 +1,37 @@
+      ********************************************************************
+      * SOURCE: hellocob.bms
+      *
+      * BMS map definition for the HELLOCOB transaction.  This source
+      * contains DFHMSD macros used by the CICS BMS translator to
+      * produce both an assembler DSECT and a COBOL copybook.  It
+      * defines a single mapset containing one map (HELLOCOB) with two
+      * input fields for a user name and age.  The copybook generated
+      * from this source is provided in hellocob_map.cpy.
+      ********************************************************************
+
+               DFHMSD   TYPE=&SYSPARM,LANG=COBOL,MODE=INOUT,                            X
+                         STORAGE=AUTO,TERM=3270,                                        X
+                         MAPATTS=(COLOR,HILIGHT),                                       X
+                         DSATTS=COLOR,                                                  X
+                         MAPSET=HELLOCOB
+
+      * Map definition
+               DFHMDI   SIZE=(24,80),LINE=1,COLUMN=1,JUSTIFY=LEFT
+
+      * Prompt for name
+               DFHMDF   POS=(02,02),LENGTH=11,ATTRB=(PROT,NORM),INITIAL='Enter Name:'
+
+      * Name input field
+               DFHMDF   POS=(02,14),LENGTH=15,ATTRB=(UNPROT,NORM),                     X
+                         INITIAL='               ',                                     X
+                         MAPNAME=HELLOCOB,FIELD=HELLOCOB-NAMEO
+
+      * Prompt for age
+               DFHMDF   POS=(04,02),LENGTH=10,ATTRB=(PROT,NORM),INITIAL='Enter Age:'
+
+      * Age input field
+               DFHMDF   POS=(04,14),LENGTH=3,ATTRB=(UNPROT,NORM),                      X
+                         INITIAL='   ',                                                X
+                         MAPNAME=HELLOCOB,FIELD=HELLOCOB-AGEO
+
+               DFHMSD   TYPE=FINAL
