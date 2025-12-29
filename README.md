@@ -1,2 +1,2 @@
-# Sandbox-Test-App
-Sandbox Test Application
+# MMA-Test-App
+Mainframe Modernization Test Application 
